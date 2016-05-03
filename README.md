@@ -1,15 +1,17 @@
-# kallithea
+# Kallithea multi-container Docker application 
+
+Example to run:
+> `docker-compose up `
+
+## web - kallithea image
 Docker image that contains kallithea, a DVCS server written in Python.  The default login in this container is `admin` and password is `K4ll1th34`, obviously please change it if you intend to use this for more than a quick evaluation.
 
-This Docker image exposes port 80 and has two volume export points such that one can make a permanent installation 
-with ephemeral docker containers.
+This Docker image exposes port 80 and has two volume export points such that one can make a permanent installation with ephemeral docker containers.
 
 Example to run:
 > `docker run -dp 3080:80 petergrace/kallithea`
 
-This will start a container such that you can try out the software.  It will host the kallithea instance on your 
-docker host's port 3080.  This repo also includes a fig.yml file if you'd like to use  `fig` or `docker-compose` functionality.
-
+This will start a container such that you can try out the software.  It will host the kallithea instance on your docker host's port 3080. 
 
 
 **If you would like to run this in a more permanent fashion, please do the following steps:**
@@ -19,3 +21,5 @@ docker host's port 3080.  This repo also includes a fig.yml file if you'd like t
 - Download the kallithea.db sqlite file from this repo's docker/ subdirectory.
 - Place the kallithea.db file in the data folder
 - execute the docker container: `docker run -dp 3080:80 -v /opt/kal/data:/opt/kallithea/data -v /opt/kal/repos:/opt/kallithea/repos petergrace/kallithea`
+
+## db - postgres image

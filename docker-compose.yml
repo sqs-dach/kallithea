@@ -1,0 +1,13 @@
+version: '2'
+services:
+  web:
+    build: web
+    ports:
+    - "3080:80"
+    volumes:
+    - /var/kallithea/data:/opt/kallithea/data/
+    - /var/kallithea/repos:/opt/kallithea/repos/
+    links:
+    - db
+  db:
+    build: db
