@@ -3,11 +3,17 @@ services:
   web:
     build: web
     ports:
-    - "3080:80"
-    volumes:
-    - /var/kallithea/data:/opt/kallithea/data/
-    - /var/kallithea/repos:/opt/kallithea/repos/
+      - "3080:80"
     links:
-    - db
+      - db
+    volumes:
+      - /c/Users/MoT/docker-vol/kallithea/repos:/opt/kallithea/repos
+      - /c/Users/MoT/docker-vol/kallithea/log:/var/log/apache2
   db:
     build: db
+    environment:
+      - POSTGRES_PASSWORD=pgpass99
+#    volumes:
+#      - /c/Users/MoT/docker-vol/kallithea/data:/var/lib/postgresql/data
+      
+      
